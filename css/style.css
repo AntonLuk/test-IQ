@@ -1,0 +1,92 @@
+.breadcrumb li{
+    display: inline-block;
+}
+.menu ul {
+    list-style: none; /*убираем маркеры списка*/
+    margin: 0; /*убираем отступы*/
+    padding-left: 0; /*убираем отступы*/
+    margin-top:25px; /*делаем отступ сверху*/
+    background:black; /*добавляем фон всему меню (заменив этот параметр, вы поменяете цвет всего меню)*/
+    height: 50px; /*задаем высоту*/
+}
+.menu a {
+    text-decoration: none; /*убираем подчеркивание текста ссылок*/
+    background:black; /*добавляем фон к пункту меню (заменив этот параметр, вы поменяете цвет всех пунктов меню)*/
+    color:white; /*меняем цвет ссылок*/
+    padding:0px 15px; /*добавляем отступ*/
+    font-family: arial; /*меняем шрифт*/
+    line-height:50px; /*ровняем меню по вертикали*/
+    display: block;
+    border-right: 1px solid #F36262; /*добавляем бордюр справа*/
+    -moz-transition: all 0.3s 0.01s ease; /*делаем плавный переход*/
+    -o-transition: all 0.3s 0.01s ease;
+    -webkit-transition: all 0.3s 0.01s ease;
+}
+.menu a:hover {
+    background:#D43737;/*добавляем эффект при наведении*/
+}
+.menu li {
+    float:left; /*Размещаем список горизонтально для реализации меню*/
+}
+.footer-menu{
+    flex: 0 0 auto;
+
+
+}
+.footer-menu ul {
+
+    list-style: none; /*убираем маркеры списка*/
+    /*убираем отступы*/
+    padding-left: 0; /*убираем отступы*/
+    /*margin-top:25px; !*делаем отступ сверху*!*/
+    background:black; /*добавляем фон всему меню (заменив этот параметр, вы поменяете цвет всего меню)*/
+    height: 50px; /*задаем высоту*/
+    margin: 0 auto;
+    padding-bottom: 10px;
+
+
+}
+.footer-menu a {
+
+    /*text-decoration: none; !*убираем подчеркивание текста ссылок*!*/
+    background:black; /*добавляем фон к пункту меню (заменив этот параметр, вы поменяете цвет всех пунктов меню)*/
+    color:white; /*меняем цвет ссылок*/
+    padding:0px 15px; /*добавляем отступ*/
+    font-family: arial; /*меняем шрифт*/
+    line-height:50px; /*ровняем меню по вертикали*/
+    display: block;
+    /*border-right: 1px solid #F36262; !*добавляем бордюр справа*!*/
+    -moz-transition: all 0.3s 0.01s ease; /*делаем плавный переход*/
+    -o-transition: all 0.3s 0.01s ease;
+    -webkit-transition: all 0.3s 0.01s ease;
+}
+.footer-menu a:hover {
+    background:#D43737;/*добавляем эффект при наведении*/
+}
+.footer-menu li {
+    float:left; /*Размещаем список горизонтально для реализации меню*/
+}
+.logo{
+    display: inline-block;
+}
+.contact{
+    float: right;
+    text-align: right;
+    display: inline-block;
+    color: red;
+}
+.bread ul{
+
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    list-style: none;
+}
+.bread li{
+    float:left;
+}
+
+.container{
+    background-color: lightgray;
+    margin-right: 500px;
+}
