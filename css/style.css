@@ -1,3 +1,15 @@
+
+.ui-slider .ui-slider-handle {
+    width: 3em;
+    height: 1.6em;
+    top: 50%;
+    margin-top: -.8em;
+    text-align: center;
+    line-height: 1.6em;
+    outline: none !important;
+    cursor: pointer !important;
+}
+
 .breadcrumb li{
     display: inline-block;
 }
@@ -29,7 +41,11 @@
     float:left; /*Размещаем список горизонтально для реализации меню*/
 }
 .footer-menu{
-    flex: 0 0 auto;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+
 
 
 }
@@ -37,7 +53,7 @@
 
     list-style: none; /*убираем маркеры списка*/
     /*убираем отступы*/
-    padding-left: 0; /*убираем отступы*/
+
     /*margin-top:25px; !*делаем отступ сверху*!*/
     background:black; /*добавляем фон всему меню (заменив этот параметр, вы поменяете цвет всего меню)*/
     height: 50px; /*задаем высоту*/

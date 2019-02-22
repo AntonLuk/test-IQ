@@ -29,9 +29,34 @@ if (!empty($urls) && $cur_url != '/') {
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Test IQ</title>
+    <link href="https://atuin.ru/demo/ui-slider/jquery-ui.css" type="text/css">
     <link href ="/css/style.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" integrity="2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/js/bootstrap.min.js" integrity="VjEeINv9OSwtWFLAtmc4JCtEJXXBub00gtSnszmspDLCtC0I4z4nqz7rEFbIZLLU" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $( function() {
+            $( "#datepicker" ).datepicker();
+        } );
+    </script>
+
+    <script>
+        function getdetails(){
+            var summ = $('#summ').val();
+            var years = $('#years').val();
+            $.ajax({
+                type: "POST",
+                url: "calc.php",
+                data: {summ:summ, years:years}
+            }).done(function( result )
+            {
+                $("#msg").html("Address of Roll no " +summ +" is "+result );
+            });
+        }
+    </script>
 </head>
 <body>
 <div class="logo"><img src="/images/logo.png">
@@ -68,28 +93,29 @@ if (!empty($urls) && $cur_url != '/') {
 <div class="content">
     <div class="container">
         <h2>Калькулятор</h2>
-    <form method="post" class="calc" action="index.php">
+    <form method="post" class="calc" >
         <div class="form-group row">
         <label for="date" class="col-sm-2 col-form-label">Дата оформления вклада</label>
             <div class="col-sm-10">
-                <input type="date"  name="date"><br>
+<!--                <input type="date"  name="date"><br>-->
+                 <input type="text" id="datepicker" name="date">
             </div>
         </div>
         <div class="form-group row">
         <label for="summ" class="col-sm-2 col-form-label">Сумма</label>
             <div class="col-sm-10">
-            <input type="number"  name="summ" min="1000" max="3000000"><br>
+            <input type="number" name="summ" min="1000" max="3000000"><br>
             </div>
         </div>
         <div class="form-group row">
             <label for="years" class="col-sm-2 col-form-label">Срок вклада</label>
         <div class="col-sm-10">
             <select name="years">
-            <option value="1">1 год</option>
-            <option value="2">2 года</option>
-            <option value="3">3 года</option>
-            <option value="4">4 года</option>
-            <option value="5">5 лет</option>
+            <option value="365">1 год</option>
+            <option value="730">2 года</option>
+            <option value="1095">3 года</option>
+            <option value="1460">4 года</option>
+            <option value="1825">5 лет</option>
         </select>
         </div>
         </div>
@@ -106,7 +132,8 @@ if (!empty($urls) && $cur_url != '/') {
                 <input type="number"  name="summadd" min="1000" max="3000000"><br>
             </div>
         </div>
-            <input type="submit" class="btn btn-success" value="Рассчитать">
+            <input type="submit" class="btn btn-success" onClick = "getdetails()" value="Рассчитать">
+        <div id="msg"></div>
 
     </form>
         </div>
@@ -124,15 +151,4 @@ if (!empty($urls) && $cur_url != '/') {
 </body>
 
 </html>
-<?php
-$datenow=getdate();
-$date=$_POST['date'];
-$years=$_POST['years'];
-$summ=$_POST['summ'];
-$summadd=$_POST['summadd'];
-$percent=0.1;
-$daysn=date("d", strtotime($date));;
-print_r($datenow);
-$replenishment=$_POST['replenishment'];
 
-?>
